@@ -36,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MeetingService {
 	
 	@Autowired
-	FileService fileService;
+	private FileService fileService;
 
 	/**
 	 * 
@@ -45,7 +45,7 @@ public class MeetingService {
 	 * 
 	 * This method will process file, find valid meetings and will confirm bookings 
 	 */
-	public Set<ConfirmedMeetingsDto> processBookingRequests(MultipartFile file) {	
+	public TreeSet<ConfirmedMeetingsDto> processBookingRequests(MultipartFile file) {	
 		
 		
 		MeetingRequest request = null;
@@ -116,8 +116,8 @@ public class MeetingService {
 	 * 
 	 * This method will convert MeetingRequests object to Dto also will have confirm meetings in chronologically by day order
 	 */
-	private Set<ConfirmedMeetingsDto> getConfirmedMeetingsDtoObject(Map<LocalDate, List<BookingRequest>> confirmedBookingRequestsMap){
-		Set<ConfirmedMeetingsDto> confirmedMeetingsDtoObject = new TreeSet<>();
+	private TreeSet<ConfirmedMeetingsDto> getConfirmedMeetingsDtoObject(Map<LocalDate, List<BookingRequest>> confirmedBookingRequestsMap){
+		TreeSet<ConfirmedMeetingsDto> confirmedMeetingsDtoObject = new TreeSet<>();
 		
 		
 		for (Map.Entry<LocalDate, List<BookingRequest>> entry : confirmedBookingRequestsMap.entrySet()) {
