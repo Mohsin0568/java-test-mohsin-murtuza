@@ -31,6 +31,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FileService {
 
+	/**
+	 * 
+	 * @param file
+	 * @return MeetingRequest
+	 * 
+	 * This method will take file, reads it and converts it to a MeetingRequest object. 
+	 * It also stores all meeting requests in MeetingRequest object in chronologically order by submission date.
+	 */
 	public MeetingRequest getMeetingRequestData(MultipartFile file){
 		
 		try {
@@ -91,6 +99,14 @@ public class FileService {
 		}		
 	}
 	
+	/**
+	 * 
+	 * @param localDateTime
+	 * @param format
+	 * @return
+	 * 
+	 * Converts a string to LocalDateTime object
+	 */
 	private static LocalDateTime getLocalDateTimeFromString(String localDateTime, String format) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format); 
 		return LocalDateTime.parse(localDateTime, formatter);
@@ -98,6 +114,13 @@ public class FileService {
 		
 	}
 	
+	/**
+	 * 
+	 * @param timeInString
+	 * @return
+	 * 
+	 * Converts a string to LocalTime object
+	 */
 	private static LocalTime getTimeFromString(String timeInString) {
 		return LocalTime
 				.of(
