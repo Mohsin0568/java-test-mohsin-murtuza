@@ -6,7 +6,7 @@ package com.systa.meetings.dto;
 import java.time.LocalDate;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +20,7 @@ import lombok.Data;
 @Builder
 public class ConfirmedMeetingsDto implements Comparable<ConfirmedMeetingsDto>{
 
-	@JsonAlias("data")
+	@JsonProperty("data")
 	private LocalDate date;
 	
 	private Set<MeetingDto> bookings;

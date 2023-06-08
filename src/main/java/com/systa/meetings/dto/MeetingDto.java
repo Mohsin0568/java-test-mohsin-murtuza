@@ -5,7 +5,7 @@ package com.systa.meetings.dto;
 
 import java.time.LocalTime;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
 import lombok.Data;
@@ -19,13 +19,13 @@ import lombok.Data;
 @Builder
 public class MeetingDto implements Comparable<MeetingDto>{
 
-	@JsonAlias("emp_id")
+	@JsonProperty("emp_id")
 	private String employeeId;
 	
-	@JsonAlias("start_time")
+	@JsonProperty("start_time")
 	private LocalTime startTime;
 	
-	@JsonAlias("end_time")
+	@JsonProperty("end_time")
 	private LocalTime endTime;
 
 	@Override
